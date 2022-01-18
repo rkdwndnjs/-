@@ -1,0 +1,168 @@
+# class 1
+
+# 더하기 빼기 곱하기 나누기 나머지 몫
+# + - * / % //
+# 5 % 2
+
+
+# 출력함수
+# print(6786 % 52)
+
+
+# 변수 - 박스
+# 변수의 이름=들어갈 값
+# a = 6+8
+# a = 9
+# b = a # 값이 덮어 씌워짐
+# c = a+b*6
+# a = a + 1# 자기 자신의 값에 1를 더하는 코드
+# print(a,b,c)
+
+
+
+# 두 변수 a,b가 있다. a는 7값 을 b는 9값 을 가지고 있다. a와 b의 값 을 서로 바꿔 보기.
+# a = 7
+# b = 9
+# c = a
+#  d = b
+#  a = d
+# b = c
+# print(a,b)
+#
+
+
+# 자료형
+# a = 341  # 정수형 - int
+# b = 1.9  # 실수형 - float
+# c = "abcd"  # 문자열 - str
+# type() - 들어간 값의 자료형 을 알려 주는 함수
+# print(type(c))
+
+
+
+# 문자열 - str
+# a = "abcd"
+# b = "가나다라"
+# print(a+b)
+# 문자열 을 붙인 것도 값이 된다
+# c = a+b
+# print(c)
+
+# class 2
+
+
+# 인덱싱, 슬라이싱
+
+# 인덱싱 - 특정한 하나의 값을 불러옴
+# a = "hello python!"
+# print("abcd"+a[1])
+# hello 에서 h는 0번쨰로 인식 된다. -> 0부터 순서를 센다, 띄어 쓰기도 포함 하여서 쓴다.
+
+
+# 슬라이싱 - 특정한 구간의 값을 불러옴
+# a = "hello python!"
+# print(a[6:])
+# print(a[:4])
+# print(a[2:7])
+# : 를 기준 으로 왼쪽은 이상 오른쪽 은 미만 으로 인식 된다.
+
+
+# bool <- 자료형 (참, 거짓)
+# a = True
+# b = False
+# print(a)
+# print(b)
+# print(type(a))
+# print(a+b)
+
+# 논리 연산자
+# and : 묶인 조건이 모두 참이 여야만 참 ex) a and b
+# or : 묶인 조건 중 하나 라도 참이 라면 참 ex) a or b
+# == : 서로 같다면 참
+# != : 서로 다르 다면 참
+# > , < <=, >= : ~보다 크다,작다 ~보다 같거나 크다,작다 ( 부등호 는 무적권 =의 왼쪽에 있어야 함)
+
+
+# 조건문 - if - 조건이 참일 떄 실행
+# if 조건:
+#     조건이 참일 떄 실행할 코드
+#     ~
+#     ~
+#     ~
+#     ~
+#     ~
+
+# if 조건문 예시
+# a = 7
+# if a !=7 or a <= 10:
+#     print(a*4)
+#     a = a - 2
+#     if a == 5:
+#             print(a)
+# print(a-4)
+
+# else - if 조건이 거짓일 떄 무적권 실행
+# a = 3
+# if a > 4:
+#     print(a)
+# else:
+#     print("asdf")
+
+
+
+# elif  if의 조건이 거짓일때 , 자신의 조건이 참일떄 실행
+# a = "python"
+# if a != "python":
+#     print(a+a)
+# elif type(a) == str:
+#     print(a)
+# else:
+#     print(a+a+a)
+# elif 의 특징 으로는 여러 가지 갈래로 if를 쪼갤 수 있다
+# if는 elif 를 묶는다
+
+# 1330 문제 두 수 비교
+# a = 2
+# b = 2
+# if a > b:
+#     print(">")
+# elif a < b:
+#     print("<")
+# elif a == b:
+#     print("==")
+
+# 9498 시험 성적 문제
+# a = 100
+# if 0<=a<=100:
+#     if 90<=a<=100:
+#         print("A")
+#     elif 80<=a<=89:
+#         print("B")
+#     elif 70<=a<=79:
+#         print("C")
+#     elif 60<=a<+69:
+#         print("D")
+#     elif a<=59:
+#         print("F")
+
+# 2753 윤년 문제
+# a =2012
+# if 1<=a<=4000:
+#     if (a%4==0 and a%100!=0) or a%400==0:
+#         print(1)
+#     else:print(0)
+
+# 14681 사분면 구하기 문제
+# a=42
+# b=100
+# if a!=0 and b!=0:
+#     if a > 0 and b > 0:
+#         print("제 1 사분면")
+#     elif a < 0 and b > 0:
+#         print("제 2 사분면")
+#     elif a < 0 and b < 0:
+#         print("제 3 사분면")
+#     elif a > 0 and b < 0:
+#         print("제 4 사분면")
+
+
