@@ -1,0 +1,64 @@
+
+# class 3
+# 입력 함수 input()  ( input 의 특징 으로는 넣은 것이 전부 문자열 로 받는다.)
+
+# a = input()
+# print(a, type(a))
+
+# a = int(input()) # 문자열 로 입력 받은 값을 정수형 으로 바꾸기.
+# print(a, type(a))
+
+
+# 문자열 관련 함수
+a = "   Hello python!, life is too short for us?  "
+# print(a.find("!") ) # 해당 문자열 에서 입력된 문자열 의 위치를 알려줌
+# print(a.find("k")) # 문자열 에서 해당 값이 없다면 -1 값을 가지게 됨
+
+# print(a.count('l')) # 해당 문자열 에서 입력된 문자의 갯수 를 알려줌
+
+# print(a.lstrip()) # 왼쪽 공백 제거
+# print(a.rstrip()) # 오른쪽 공백 제거
+# print(a.strip()) # 양쪽 공백 제거
+
+# print(a.index("o")) # 해당 문자열 에서 처음 으로 찾은 값의 위치를 알려줌
+# print(a.index("k")) # 문자열 에서 해당 값이 없다면 오류가 남
+
+# print(a.upper()) # 소문자 -> 대문자
+# print(a.lower()) # 대문자 -> 소문자
+
+# print(a.replace("life", "every thing")) # 해당 문자열 을 입력된 문자열 로 바꿈
+#
+# print(a.split("l")) # 입력된 값 을 기준 으로 문자열 을 나눈다
+
+# a = int(input())
+#
+# if 90<=a<=100:
+#     print("A")
+# elif 80<=a<=89:
+#     print("B")
+# elif 70<=a<=79:
+#     print("C")
+# elif 60<=a<=69:
+#     print("D")
+# elif a<=59:
+#     print("F")
+
+
+# 반복문 for , while
+
+# while 조건: -> 조건이 참이면 아래 코드를 반복 실행(거짓일 떄 까지)
+#     반복 해서 실행할 코드
+#     ~
+#     ~
+#     ~
+#     ~
+# break -> 반복문 탈출 함수
+# continue -> 반복문 건너 뛰기 함수
+a = 0
+while True:
+    if 5 <= a <= 10:
+        continue
+    print(a)
+    a = a + 1
+    if a == 20:
+        break
