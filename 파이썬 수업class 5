@@ -1,0 +1,154 @@
+# for i in range(1 , 100):
+#     if (i % 10 == 3 or 6 or 9) or (i // 10 == 3 or 6 or 9):
+#         print("*")
+#     elif (i % 10 == 3 or 6 or 9) and (i // 10 == 3 or 6 or 9):
+#         print("**")
+#     else:
+#         print(i)
+# for a in range(1 , 101):
+#      if  ((a % 10) == 3 or (a % 10) == 6 or (a % 10 == 9)):
+#          if ((a // 10) == 3 or (a // 10) == 6 or (a // 10) == 9):
+#              print("**")
+#          else:
+#              print(a)
+#      elif a % 10 == 3 or a % 10 == 6 or a % 10 == 9 :
+#         print("*")
+#      elif a // 10 == 3 or a // 10 == 6 or a // 10 == 9:
+#         print("*")
+
+# a = 0
+# while a < 100:
+#     a += 1
+#     if ((a % 10) == 3 or (a % 10) == 6 or (a % 10 == 9)):
+#         if ((a // 10) == 3 or (a // 10) == 6 or (a // 10) == 9):
+#             print("**")
+#         else:
+#             print(a)
+#     elif a % 10 == 3 or a % 10 == 6 or a % 10 == 9:
+#         print("*")
+#     elif a // 10 == 3 or a // 10 == 6 or a // 10 == 9:
+#         print("*")
+
+# 리스트 : 수정 삭제 추가가 가능 하며 대 괄호를 이용 해서 나타 낸다
+# a = [1,2,3,4,5]
+# print(a)
+# 리스트 의 인덱싱 :
+# a = [1,2,3]
+# print(a[0] + a[2])
+# print(a[-2])
+# a = [1,2,3,["a","b","c"]]
+# print(a[3])
+# print(a[3][0])
+# a = [1,2,['a','b',['life','is']]]
+# print(a[2][2][0])
+# print(a[2][2][1])
+# 리스트 의 슬라 이싱
+# a = [ 1,2,3,4,5]
+# print(a[0:2])
+# b = a[:2]
+# print(b)
+# c = a[2:]
+# print(c)
+# a = [1,2,3,['a','b','c'],4,5]
+# print(a[2:5])
+# print(a[3][:2])
+
+
+
+# a = [1,2,3]
+# b = [4,5,6]
+# print(a + b)
+# print(a*3)
+# len 길이를 구하는 함수
+# print(len(2))
+
+# a = [1,2,3]
+# print(str(a[2])+"hi")  # 문자열 은 문자열 끼리 계산 str() 이용
+
+# 리스트 의 수정
+# a = [1,2,3]
+# a[2] = 4
+# print(a)
+# a[1] = 5
+# print(a)
+
+# del a[1] # del = 삭제
+# print(a)
+
+# del a[1:]
+# print(a)
+
+#  리스트 관련 함수들
+# b = []
+# a = int(input())
+# b.append(a) # 요소 추가 함수
+# print(b)
+# a = [1,2,3]
+# a.append(4)
+# print(a)
+
+# a = [1,4,3,2]
+# a.sort() # 정렬 함수 ( 오름 차순)
+# print(a)
+#
+# a = ['a','c','b']
+# print(a)
+# a.reverse() # 순서 반전 함수
+# print(a)
+
+# a = [1,4,3,2]
+# a.sort(reverse=True) # 내림 차순
+# print(a)
+# a.sort(reverse=False)
+# print(a)
+# a.sort()
+# print(a)
+
+# a=[1,2,3]
+# a.index(0) # -> 리스트 안에 없어서 오류
+# print(a)
+
+# a = [1,2,3]
+# a.insert(0,4) # (a,b) 에서 a자리에b를 추가
+# print(a)
+# a.insert(1,7)
+# print(a)
+
+# a = [1,2,3,1,2,3]
+# a.remove(3) # remove 는 첫 번쨰 로 나오는 숫자를 지운다
+# print(a)
+# a.remove(3)
+# print(a)
+
+# a = [4,5,6]
+# a.pop() # 설정한 순서를 추출
+# print(a)
+
+# a = [1,2,3,1]
+# print(a.count(1)) # <- 숫자가 몇 개 인지 카운트 함
+# print(a.count(0))
+# print(a.count(2))
+
+# a = [1,2,3]
+# print(a)
+# a.extend([4,5]) # 확장 하는 함수
+# print(a)
+
+# Movie = []
+# Movie.append(input())
+# Movie.append(input())
+# Movie.append(input())
+# del Movie[1]
+# print(Movie)
+
+# Data = [2,4,3,1,5,10,9]
+# Data.sort()
+# print(Data)
+# Data.sort(reverse=True)
+# print(Data)
+
+
+N = [20,10,35,30,7]
+N.sort()
+print(N)
+d
