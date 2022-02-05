@@ -1,0 +1,147 @@
+# a=[3,1,2,3,5]
+ #a[2]= 4
+# print(a)
+# del a[0]
+# print(a)
+# b = [5,6]
+# print(a+b)
+# print(a*3)
+# a.append(5)
+
+# lang1 = ["C", "C++", "JAVA"]
+# lang2 = ["Python", "Go" , "C#"]
+# langs = lang1+lang2
+# print(langs)
+
+# nums = [1,2,3,4,5,6,7]
+# max = max(nums)
+# min = min(nums)
+# print(max)
+# print(min)
+# a = 0
+# nums = [1,2,3,4,5]
+# for i in range(len(nums)):
+#     a += nums[i]
+# print(a / len(nums))
+
+# price = ['20180728', '100' , '130','140' , '150']
+# print(price[1:])
+
+
+# a = [1,2,3,4,5,6,7,8,9,10]
+# print(a[::-1])
+
+# interest = ['삼성전자' , 'LG' , 'Naver']
+# print(interest[0::2])
+
+# string = "삼성전자/LG전자/Naver"
+# interest = string.split("/")
+# print(interest)
+
+# data = [2,4,3,1,5,10,9]
+# data.sort()
+# print(data)
+
+# 튜플 : 리스트와 매우 유사하지만 값의 생성과 삭제 수정이 불가능한 데이터 값들의 묶음인 자료형
+# t1 = () , t2 = (5,)# <- 비어있는 튜플 , 단 t2와 같이 한개의 원소만 들어갈 경우
+# 원소뒤에 콤마(,)를 붙여 넣어줘야 한다.
+# range(n) 함수는 0~n-1까지의 튜플이다
+# l = [1,2,3,4]
+# t = (1,2,3,4)
+# l[0] = 4
+# del l [0]
+# print(l)
+#
+#
+# t=(4,2,3,4)
+# print(t)
+
+# t = (1,2,3,4)
+# print(len(t))
+
+# 딕셔너리(dictionary) 자료형 : 딕셔너리는 Key - value로 이루어진 자료형(hash)
+# d = {'apple':'사과',"banana":"바나나",3:'삼'}
+# print(d['apple'],d["banana"],d[3]) # 딕션너리 [key값] =value값 출력
+# d[1] = '일'
+# print(d)
+# del d[1]
+# print(d)
+# print(d[])
+
+# key = d.keys()
+# value = d.values()
+# item = d.items()
+# print(list(key))
+# print(list(value))
+# print(list(item))
+# print('X' in d.keys())
+# print('사과' in d.values())
+
+# temp = ('apple', 'banana','cake')
+# a,b,c = temp
+# print(a,b,c)
+# print(tuple(range(2,99,2)))
+# 아이스크림 = {'메로나':1000,'폴라포':1200,'빵빠래':1800}
+# print(아이스크림)
+# 아이스크림['죠스바'] = 1200
+# 아이스크림['월드콘'] = 1500
+# print(아이스크림)
+# print('메로나 가격:',아이스크림['메로나'])
+# 아이스크림['붕어싸만코']=1300
+# print(아이스크림)
+# del 아이스크림['메로나']
+# print(아이스크림)
+
+# 집합은 중복되지 않는 값들의 묶음인 자료형
+# s1 = set([1])
+# s2 = set([1,2])
+# s3 = set([3,4])
+# print(s1|s2,s2|s3)
+# print(s1-s2,s2-s3)
+# print(s1&s2,s2&s3)
+# 집합의 원소 삭제
+# s1.remove(1)
+# print(s1)
+# s1.add(1)
+# print(s1)
+# 집합의 원소 여러개 추가
+# s1.update([1,2,3])
+# print(s1)
+# 집합의 특정 값 제거
+# s1.remove(2)
+# print(s1)
+# l = [1,2,3,4,4,5,6,2,2,2,1,1,]
+# l = list(set(l))
+# print(l)
+
+
+# 자료형들의 참과 거짓
+# 불,불린(boolean) 타입 = 단 두개의 값만 가질 수 있다. (True,False)
+# print(bool('python'),bool(''))
+# print(bool([1,2,3]),bool([]))
+# print(bool((1,2)),bool(()))
+# print(bool({'1':1}),bool({}))
+# print(bool(-3),bool(0))
+# print(bool(None))
+
+
+# if int(input()) % 2 == 0:
+#     print("짝수")
+# else : print("홀수")
+# n = int(input())
+# if n-20 > 255:
+#     print(255)
+# elif n-20<0:
+#     print(0)
+# else: print(n-20)
+
+# n = input()
+# if n[-2:]=='00':
+#     print("정각입니다")
+# else: print("정각이 아닙니다")
+a = input('좋아하는과일은? ')
+fruit = {"봄":"딸기","여름":"토마토","가을":"사과"}
+
+if a in fruit.values():
+    print('정답입니다')
+else: print('오답입니다')
