@@ -1,0 +1,130 @@
+# class Fourcal:
+#     def __init__(self):
+#         self.result = 0
+#
+#     def num(self,num):
+#         self.result += num
+#         return self.result
+#
+#     def sub(self,num):
+#         self.result -= num
+#         return self.result
+#
+#     def mul(self,num):
+#         self.result *= num
+#         return self.result
+#
+#     def div(self,num):
+#         self.result /= num
+#         return self.result
+#
+#
+# cal1 = Fourcal()
+# print(cal1.num(10))
+# print(cal1.sub(2))
+# print(cal1.mul(3))
+# print(cal1.div(4))
+
+
+# 10 2 3 4
+#
+# class Fourcal:
+#     def __init__(self,first,second) :
+#         self.first = first
+#         self.second = second
+#
+#     def add(self):
+#         result = self.first + self.second
+#         return result
+#
+#     def sub(self):
+#         result = self.first - self.second
+#         return result
+#
+#     def mul(self):
+#         result = self.first * self.second
+#         return result
+#
+#     def div(self):
+#         result = self.first / self.second
+#         return result
+#
+# cal1 = Fourcal(10,2)
+#
+#
+# class MoreFourcal(Fourcal):
+#     def pow(self):
+#         self.result = self.first ** self.second
+#         return self.result
+#
+#     def add(self):
+# # add 오버 라이딩 (overriding)
+# # 부모클레스에서 상속받은 기능을 자식클래시에서 추가적으로 변형시킬 수 있는 기능
+#         super().add() # super().add() == Fourcal().add()
+#         return super().add()
+#
+# class Fourcal:
+#     def __init__(self):
+#         self.result = 0
+#
+#     def add(self,num):
+#         self.result += num
+#         return self.result
+#
+#     def sub(self,num):
+#         self.result -= num
+#         return self.result
+#
+#     def mul(self,num):
+#         self.result *= num
+#         return self.result
+#
+#     def div(self,num):
+#         self.result /= num
+#         return self.result
+#
+#
+# class MoreFourcal(Fourcal):
+#     def __add__(self, other):
+#         new_cal = MoreFourcal()
+#         new_cal.result = self.result + other.result
+#         return new_cal
+#
+#
+# cal1 = MoreFourcal()
+# cal2 = MoreFourcal()
+# cal1.add(10)
+# cal2.add(3)
+# cal3 = cal1 + cal2
+# print(cal3.result)
+
+# numbers = [1,2,3,4,6,7,8,0]
+#
+#
+#
+# def solution(numbers):
+#     answer = 0
+#
+#     for i in range(10):    #i = 0~9
+#         if i not in numbers:
+#          answer += i
+
+#     return answer
+#
+# print(solution(numbers))
+#
+#
+#
+# solution(numbers)
+
+
+a = ~,!,@,#,$,%,^,&,*,(,),=,+[{]}:?,<>/
+
+def solution(new_id):
+    new_id.lower()
+    del ~,!,
+    answer = ''
+    return answer
+
+
+solution("...!@BaT#*..y.abcdefghijklm")
