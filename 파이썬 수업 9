@@ -127,4 +127,5 @@ def solution(new_id):
     return answer
 
 
-solution("...!@BaT#*..y.abcdefghijklm")
+solution("...!@BaT#*..y.abcdefghijklm") 
+(프로그래머즈 신규아이디 추천)
