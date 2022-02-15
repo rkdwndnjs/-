@@ -1,0 +1,160 @@
+
+# def solution(new_id):
+#     new_id = new_id.lower()        # 1번
+#
+#
+#     if len(new_id) >= 16: # 6번
+#         new_id = new_id[:15]
+#         if new_id[-1] == '.':
+#             new_id = new_id[14]
+#
+# #
+# new_id = "as"
+
+
+#
+#     print(new_id)
+#
+#     return new_id
+# new_id = "abcdefghijklmn.p"
+#
+# if len(new_id) >= 16:  # 6번
+#     new_id = new_id[:15]
+#     if new_id[-1] == '.':
+#         new_id = new_id[:14]
+# print(new_id)
+
+# 신규 아이디 추천
+
+ # def solution(new_id):
+ #     answer = " "
+ #
+ #     new_id = new_id.lower()
+ #
+ #     s_word =  "~!@#$%^&*()=+[{]}:?,<>/"
+ #     for i in range(len(new_id)):
+ #         if new_id[i] not in s_word:
+ #             answer += new_id[i]
+ #
+ #     while '..' in answer:
+ #         answer = answer.replace('..','.')
+ #
+ #     answer = answer.strip('.')
+ #       if len(answer) == 0:
+ #
+ #         answer += 'a'
+ #
+ #     if len(answer) >= 16:
+ #         answer = answer[:15]
+ #         if answer = endswith('.'):
+ #             answer = answer[:-1]
+ #
+ #     if len(answer) < 3:
+ #         while len(answer) <3:
+ #             answer += answer[-1]
+ #     return ans
+
+# class Stackelement:
+#     def __init__(self,data,next):
+#         self.data = data
+#         self.next = next
+#
+#
+# class Stack:
+#     #  생성자 == 초기값
+#     def __init__(self):
+#         self.top = None
+#
+#     def push(self,data):
+#         # 스택에 data가 없는 경우
+#         if self.top == None:
+#             elem = Stackelement(data,None)
+#             self.top = elem
+#         else:           # 스택에 data가 1개 이상 있는경우
+#             elem = Stackelement(data, self.top)
+#             self.top = elem
+#
+#     def pop(self):
+#         if self.top == None: # stack에 data가 없을때
+#             return None
+#         else:             # 스택에 data가 1개 이상 있는경우
+#             temp = self.top     # temp로 top을 묶어주고
+#             self.top = temp.next    # temp에 next를 top으로 바꿔준다 ==  top의 next위치를
+#                                     # 깔끔하게 붙여넣기 해준다
+#             return temp.data
+#
+#     def peek(self): # top이 무엇인지 가르키는것
+#         if self.top == None:
+#             return -1
+#         else:
+#             return self.top.data
+#
+#
+# s1 = Stack()
+# s1.push()
+#
+class Stackelement:
+    def __init__(self,data,next):
+        self.data = data
+        self.next = next
+
+
+class Stack:
+    #  생성자 == 초기값
+    def __init__(self):
+        self.top = None
+        self.size = 0
+
+    def push(self,data):
+        # 스택에 data가 없는 경우
+        if self.top == None:
+            elem = Stackelement(data,None)
+            self.top = elem
+            self.size += 1
+        else:           # 스택에 data가 1개 이상 있는경우
+            elem = Stackelement(data, self.top)
+            self.top = elem
+            self.size += 1
+
+    def pop(self):
+        if self.top == None: # stack에 data가 없을때
+            return -1
+        else:             # 스택에 data가 1개 이상 있는경우
+            temp = self.top     # temp로 top을 묶어주고
+            self.top = temp.next
+            self.size -= 1
+            # temp에 next를 top으로 바꿔준다 ==  top의 next위치를
+                                    # 깔끔하게 붙여넣기 해준다
+            return temp.data
+
+    def peek(self): # top이 무엇인지 가르키는것
+        if self.top == None:
+            return -1
+        else:
+            return self.top.data
+
+    def empty(self):
+        if self.top == None:
+            return 1
+        else:
+            return 0
+
+    def __len__(self):
+        return self.size
+
+N = int(input())
+s1 = Stack()
+for i in range(N):
+    command = input().split()
+    if command[0] == "push":
+        s1.push(command[1])
+    elif command[0] == "top":
+        print(s1.peek())
+    elif command[0] == "size":
+        print(len(s1))
+    elif command[0] == "empty":
+        print(s1.empty())
+    elif command[0] == "pop":
+        print(s1.pop())
+        
+        프로그래머스 코딩테스크 고득점 (스택/큐) : 기능개발
