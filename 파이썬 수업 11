@@ -1,0 +1,106 @@
+# def solution(progresses,speeds):
+#     # 기능별로 배포 까지 걸리는 기간 구하기
+#     terms = [] # 기간들
+#     for i in range(len(progresses)):
+#         cnt = 0
+#         while progresses[i] < 100:
+#             progresses[i] += speeds[i]
+#             cnt += 1
+#         terms.append(cnt)
+#     terms.reverse() # 7일걸리는 기능이 먼저 나가기 때문에 역순으로 만듬
+#
+#     top = terms.pop() # top = 완성되는 날
+#     cnt = [1]   #배포 되는날에 완성되는 기능의 개수
+#     while terms:    #남아있는 기능이 없을 때 까지
+#         elems = terms.pop() # 배포되는 날의 기능과 비교할 기능
+#         if elems <= 100:   # 비교헐 기능의 배포되는 날의 기능보다 전날에 완성되면
+#             cnt[-1] += 1    # 배포할 기능의 개수 증가
+#         else:
+#             top = elems     # 배포되는날은 다음기능이 완성이  되는날이 되고
+#             cnt.append(1)  # 같은 날 배포될 기능의 개수를 초기화(=1)
+#
+#     answer = cnt
+#     return answer
+
+
+# a = []
+# a.append(1)
+# a.append(2)
+# a.append(3)
+# print(a)
+# print(a.pop(0))
+# print(a.pop(0))
+# print(a.pop(0))
+
+# class QueueElement:
+#     def __init__(self,data,next):
+#         self.data = data
+#         self.next = next
+#
+# class Queue:
+#     def __init__(self):
+#         self.front = None
+#         self.Rear = None
+#
+#
+#
+#     def enqueue(self,data):
+#         if self.front == None:
+#             elem = QueueElement(data,None)
+#             self.front = elem
+#             self.Rear = elem
+#         else:
+#             elem = QueueElement(data,None)
+#             self.Rear.next = elem
+#             self.Rear = elem
+#
+#
+#     def dequeue(self):
+#         if self.front == None:
+#             return None
+#         else:
+#             data = self.front.data
+#             self.front = self.front.next
+#             return data
+#
+#     def reverse(self):
+#         prev = None
+#         curr = self.front
+#
+#         while curr:
+#             Next = curr.next
+#             curr.next = prev
+#             prev = curr
+#             curr = Next
+#
+#
+#         self.Rear, self.front = self.front, self.Rear
+#
+#
+# Q1 = Queue()
+# for i in range(1,11):
+#     Q1.enqueue(i)
+#
+# Q1.reverse()
+#
+# for i in range(10):
+#     print(Q1.dequeue())
+def solution(a,b):
+    answer = ' '
+    day = ['THU','FRI','SAT','SUN','MON','TUE','WED']
+    mon = [31,29,31,30,31,30,31,31,30,31,30,31]
+    t_day = 0
+
+    for i in range(a - 1):
+        t_day += mon[i]
+
+    answer = day[(t_day + b)%7]
+    return answer
+
+
+
+
+print(solution(1,28))
+
+
+프로그래머스 숙제 (채육복 모든문재 2번째 페이지 위쪽)
