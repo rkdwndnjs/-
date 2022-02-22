@@ -1,0 +1,141 @@
+# def solution(n, lost, reserve):
+#     lost1 = set(lost) - set(reserve)
+#     reserve1 = set(reserve) - set(lost)
+#
+#
+#
+#     return n - len(lost1)
+#
+#
+#
+# def solution(n, lost, reserve):
+#     answer = 0
+#     x = [1] * n         # 학생수 만큼 리스트에 1 생성
+#                         # 인덱스 번호 +1은 학생번호
+#                         # 값 1은 학생이 가진 체육복 수
+#
+#     for i in range(1, n+1):
+#         if i in lost:           # i가 lost에 있으면 잃어버린 학생이므로
+#             x[i-1] -= 1         # 리스트에서 1을 0으로 만들어준다
+#         elif i in reserve:      # i 가 reserve에 있으면 여분이 있음으로 1을 2로
+#             x[i-1] += 1
+#
+#         for i in range(n):
+#             if x[i] == 0:
+#                 if i >= 1 and x[i-1] == 2:
+#                     x[i] += 1
+#                     x[i-1] -= 1
+#                 elif i <= n -2 and x[i + 1] == 2:
+#                     x[i] += 1
+#                     x[i +1] -= 1
+#
+#         for i in range(n):
+#             if x[i] >= 1:
+#                 answer += 1
+#
+#         return answer
+#
+#
+#
+#
+# def solution(n, lost , reserve):
+#     reserve2 = list(set(reserve) - set(lost))
+#     lost2 = list(set(lost) - set(reserve))
+#
+#     answer = n - len(lost2)
+#     for i in lost2:
+#         if l - 1 in reserve2:
+#             answer += 1
+#             reserve2.remove(l - 1)
+#
+#         elif l + 1 in reserve2:
+#             answer += 1
+#             reserve2.remove(l + 1)
+#
+#     return answer
+
+
+class Dq_Element:
+    def __init__(self,data,left,right):
+        self.data = data
+        self.left = left
+        self.right = right
+
+
+class Deque:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+
+
+    def insert_rear(self,data):
+        elem = Dq_Element(data,None,self.rear)
+        if self.rear is None:
+            self.rear = elem
+            self.front = elem
+        else:
+            self.rear.left = elem
+            self.rear = elem
+
+    def insert_front(self,data):
+        elem = Dq_Element(data,self.front, None)
+        if self.front is None:
+            self.rear = elem
+            self.front = elem
+        else:
+            self.front.right = elem
+            self.front = elem
+
+    def delete_rear(self):
+        if self.rear is None:
+            return  None
+        data = self.rear.data
+        if self.rear == self.front:
+            self.rear = self.front = None
+        else:
+            self.rear = self.rear.right
+            self.rear.left = None
+        return data
+
+
+
+    def delete_front(self):
+        if self.front is None:
+            return  None
+        data = self.front.data
+        if self.rear == self.front:
+            self.rear = self.front = None
+        else:
+            self.front = self.front.left
+            self.front.right = None
+        return data
+
+
+    def reverse(self):
+        x = self.rear
+        while x:
+            x.left,x.right =x.right,x.left
+            x = x.left
+        self.rear,self.front = self.front,self.rear
+
+
+
+
+dq = Deque()
+for i in range(1,6):
+    dq.insert_rear(i)
+    dq.insert_front(-i)
+
+dq.reverse()
+
+for i in range(10):
+    print(dq.delete_front())
+
+
+def solution(arr):
+    answer = []
+    # [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+    print('Hello Python')
+    return answer
+    
+    백준 15649 N과M 풀어오기
