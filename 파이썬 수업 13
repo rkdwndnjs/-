@@ -33,7 +33,7 @@
 #         curr = self.root
 #
 #         node = TreeNode(data,None,None)
-#
+#프로그래머스 같은 숫자는 싫어
 #         while curr:
 #             if node == curr.data:
 #                 return data
