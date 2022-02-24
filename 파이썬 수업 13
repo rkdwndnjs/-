@@ -1,0 +1,112 @@
+# node 가장 처음에 들어 가는 root node 가장 끝에 있는 node 는  leaf node
+
+# class TreeNode:
+#     def __init__(self,data,left,right):
+#         self.data = data
+#         self.left = left
+#         self.right = right
+#
+# class BinaryTree:
+#     def __init__(self):
+#         self.root = None
+#
+#     def insert(self,data):
+#         node = TreeNode(data,None,None)
+#         if self.root is None:
+#             self.root = node
+#             return
+#         else:
+#             curr = self.root
+#             while curr:
+#                 if curr.data <= data:
+#                     curr = curr.right
+#                 else:
+#                     curr = curr.left
+#
+#             if curr.left is None:
+#                 curr.left = node
+#             else:
+#                 if curr.left is None:
+#                     curr.right = node
+#
+#     def find(self,data):
+#         curr = self.root
+#
+#         node = TreeNode(data,None,None)
+#
+#         while curr:
+#             if node == curr.data:
+#                 return data
+#             if curr.data <= node:
+#                 curr = curr.right
+#             else:
+#                 if curr.data > node:
+#                     curr = curr.left
+#
+#     def delete(self,data):
+#         pare = None
+#         curr = self.root
+#         while curr:
+#             if curr.data == data:
+#                 # 삭제하려는 노드의 자식 노드가 없을 경우
+#                 if curr.right is None and curr.left is None:
+#                     if pare.left == curr:
+#                         pare.left = None
+#                     else:
+#                         pare.right = None
+#                 # 삭제하려는 노드의 자식 노드가 하나인 경우
+#                 elif curr.right is None and curr.left is not None:
+#                     if pare.left == curr:
+#                         pare.left = curr.left
+#                     else:
+#                         pare.right = curr.left
+#                 elif curr.right is not None and curr.left is None:
+#                     if pare.left == curr:
+#                         pare.left = curr.right
+#                     else:
+#                         pare.right = curr.right
+#                 # 삭제하려는 노드의 자식 노드가 두개인 경우(왼쪽  서브트리의 제일 오른쪽 값을 삭제할 노드의 위치로 복사)
+#                 else:
+#                         # 후속자를 찾는 과정
+#                     ret_data = curr.data # 리턴할 삭제값 저장
+#                     succ_p = None # 후속자의 부모
+#                     succ = curr.left # 후속자를 삭제할 값의 왼쪽 서브트리에서 찾는다
+#                     while succ.right is not None:
+#                         succ_p = succ
+#                         succ = succ.right
+#                     curr.data = succ.data
+#                     succ_p.right = succ.left
+#                     return ret_data
+#                 return curr.data
+#             elif curr.data < data:
+#                 pare = curr
+#                 curr = curr.right
+#             else:
+#                 pare = curr
+#                 curr = curr.left
+#         return None
+
+a = [1,2,3,4,5,6,7,8,9]
+
+def Binary_search(list_a,data):
+    left = 0
+    right = len(list_a) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if data == list_a[mid]:
+            return 1
+        elif data > list_a[mid]:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return 0
+
+n =  int(input())
+a = list(map(int, input().split()))
+a.sort()
+m = int(input())
+b = list(map(int, input().split()))
+
+
+for i in range(m):
+    print(Binary_search(a,b[i]))
