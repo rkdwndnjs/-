@@ -110,3 +110,4 @@ b = list(map(int, input().split()))
 
 for i in range(m):
     print(Binary_search(a,b[i]))
+프로그래머스 같은 숫자는 싫어
