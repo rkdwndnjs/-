@@ -217,7 +217,7 @@ class NeuralNetwork:
     # 신경망에 물어보기
     def query(self,inputs_list):
         # 입력 리스트를 2차원 전치 행렬로 변환
-        inputs = np.array(inputs_list,ndmin = 2)
+        inputs = np.array(inputs_list,ndmin = 2).
 
         # 은닉계층으로 들어오는 신호를 계산
         hidden_layer_in = np.dot(self.wih,inputs)
