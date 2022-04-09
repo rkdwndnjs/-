@@ -103,10 +103,13 @@ def input_expr(txt: str):
     ent_expr.insert(0,expr)     # 새로운 수식을 Entry에 넣어줌
 
 def get_result():
-    if len(ent_expr.get()) == 0:
+    expr = ent_expr.get()
+    if len(expr) == 0:
         return
+    if expr[-1] in ('+','-','*','/'):
+        expr = expr[:-1]
     calc = IntCalc()
-    calc.set_expression(ent_expr.get())
+    calc.set_expression(expr)
     result = calc.evaluation()
     ent_expr.delete(0,'end')
     ent_expr.insert(0,str(result))
@@ -146,3 +149,4 @@ btneq.configure(command=lambda: get_result())
 # mainlop는 메인 창에 대한 운영체재 이벤트 처리 루프를 실행함.
 # 이 루프는 프로그램 종료까지 끝나지 않음.
 root.mainloop()
+
