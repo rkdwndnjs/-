@@ -1,0 +1,148 @@
+
+
+
+
+
+# tkinter (TK interface) 모듈 활용하여 파이썬 GUI 프로그램 만들기
+# interface란 상호 작용을 의미
+
+from tkinter import *
+# ttk는 tkinter의 최신 테마 위젯을 제공함.
+# ttk가 제공하는 위젯: Button , Checkbutton, Entry, Frame, Label, ...
+from tkinter.ttk import *
+from cal import *
+# Tk 클래스는 최상위 위젯을 만들 수 있는 클래스임.
+# 최상위 위젯이란 응용 프로그램의 "메인 창(Main Window)"를 의미
+root = Tk()
+
+a = IntCalc
+root.title('계산기')
+root.geometry('480x320')
+
+# Frame 위젯은 다른 위젯을 감싸는 레이아웃(Layout) 위젯임.
+# 첫번째 매개변수인 master는 이 위젯의 부모 위젯을 뜻함.
+frm = Frame(root)
+
+# Frame의 영역을 부모 위젯 전체로 보고 가운데에 배치시킴
+frm.pack(expand=True)
+
+# 한줄 텍스터 에디터 위젯을 생성함. 폰트는 맑은고딕 , 15px라는 의미
+ent_expr = Entry(frm, font='맑은고딕 15')
+ent_expr.grid(column=0,row=0, columnspan=4,sticky='wesn')
+
+
+
+
+
+
+btn7 = Button(frm,text='7')
+btn7.grid(column=0,row=1,padx=5,pady=5,sticky='wens')
+
+btn8 = Button(frm,text='8')
+btn8.grid(column=1,row=1,padx=5,pady=5,sticky='wens')
+
+btn9 = Button(frm,text='9')
+btn9.grid(column=2,row=1,padx=5,pady=5,sticky='wens')
+
+btnplus = Button(frm,text='+')
+btnplus.grid(column=3,row=1,padx=5,pady=5,sticky='wens')
+
+btn4 = Button(frm,text='4')
+btn4.grid(column=0,row=2,padx=5,pady=5,sticky='wens')
+
+btn5 = Button(frm,text='5')
+btn5.grid(column=1,row=2,padx=5,pady=5,sticky='wens')
+
+btn6 = Button(frm,text='6')
+btn6.grid(column=2,row=2,padx=5,pady=5,sticky='wens')
+
+btnmin = Button(frm,text='-')
+btnmin.grid(column=3,row=2,padx=5,pady=5,sticky='wens')
+
+btn1 = Button(frm,text='1')
+btn1.grid(column=0,row=3,padx=5,pady=5,sticky='wens')
+
+btn2 = Button(frm,text='2')
+btn2.grid(column=1,row=3,padx=5,pady=5,sticky='wens')
+
+btn3 = Button(frm,text='3')
+btn3.grid(column=2,row=3,padx=5,pady=5,sticky='wens')
+
+btnmul = Button(frm,text='*')
+btnmul.grid(column=3,row=3,padx=5,pady=5,sticky='wens')
+
+btndel = Button(frm,text='del')
+btndel.grid(column=0,row=4,padx=5,pady=5,sticky='wens')
+
+btn0 = Button(frm,text='0')
+btn0.grid(column=1,row=4,padx=5,pady=5,sticky='wens')
+
+btneq = Button(frm,text='=')
+btneq.grid(column=2,row=4,padx=5,pady=5,sticky='wens')
+
+btndiv = Button(frm,text='/')
+btndiv.grid(column=3,row=4,padx=5,pady=5,sticky='wens')
+
+
+
+
+# 입력함수를 정의 후 사용
+def input_expr(txt: str):
+    expr = ent_expr.get()       # Entry의 수식을 가져옴
+    # ------ 이 라인에서 연산자에 대한 처리를 해보면 될듯 -------
+    if len(expr)>0 and expr[-1] in ('+','-','*','/') and txt in ('+','-','*','/'):
+        lexpr = list(expr)
+        lexpr[-1] = txt
+        expr = ''.join(lexpr)
+
+    elif len(expr) == 0 and txt in ('+','-') :
+        expr += '0' + txt
+    else:
+        expr += txt             # 수식에 추가되는 문자를 붙임
+    ent_expr.delete(0,'end')    # Entry의 기존 수식을 전부 지움
+    ent_expr.insert(0,expr)     # 새로운 수식을 Entry에 넣어줌
+
+def get_result():
+    if len(ent_expr.get()) == 0:
+        return
+    calc = IntCalc()
+    calc.set_expression(ent_expr.get())
+    result = calc.evaluation()
+    ent_expr.delete(0,'end')
+    ent_expr.insert(0,str(result))
+
+btn0.configure(command=lambda: input_expr('0'))
+
+btn1.configure(command=lambda: input_expr('1'))
+
+btn2.configure(command=lambda: input_expr('2'))
+
+btn3.configure(command=lambda: input_expr('3'))
+
+btn4.configure(command=lambda: input_expr('4'))
+
+btn5.configure(command=lambda: input_expr('5'))
+
+btn6.configure(command=lambda: input_expr('6'))
+
+btn7.configure(command=lambda: input_expr('7'))
+
+btn8.configure(command=lambda: input_expr('8'))
+
+btn9.configure(command=lambda: input_expr('9'))
+
+btnplus.configure(command=lambda: input_expr('+'))
+
+btnmin.configure(command=lambda: input_expr('-'))
+
+btnmul.configure(command=lambda: input_expr('*'))
+
+btndiv.configure(command=lambda: input_expr('/'))
+
+btndel.configure(command=lambda: ent_expr.delete(0,'end'))
+
+btneq.configure(command=lambda: get_result())
+
+# mainlop는 메인 창에 대한 운영체재 이벤트 처리 루프를 실행함.
+# 이 루프는 프로그램 종료까지 끝나지 않음.
+root.mainloop()
