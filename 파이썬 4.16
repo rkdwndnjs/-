@@ -1,0 +1,50 @@
+# # 중복신고 제거
+# report = list(set(report))
+#
+# # 신고 당한 사람들을 딕셔너리로 정리
+# report_user = {}
+#
+# for string in report:
+#     user,target = string.split() # 유저와 신고 대상자를 추출
+#
+# # 신고 대상자를 키값으로 대상자를 신고한 유저들 리스트로 정리
+#     if target not in report_user.keys():
+#         report_user[target] = [user]
+#     else:
+#         report_user[target].append(user)
+#
+# # 메일 결과값을 계산
+#     result = [0] * len(id_list)
+#     for target in id_list:
+# # 신고 대상자가 정지된 경우 신고한 유저에게 메일을 보냄
+#         if target in report_user.keys() and len(report_user[target]) >= k:
+#             for user in report_user[target]:
+#                 result[id_list.index(user)] += 1
+#
+#     return result
+
+# def solution(participant, completion):
+#      p = sorted(participant)
+#      c = sorted(completion)
+#      for i,x in enumerate(c):
+#          if p[i] != x:
+#             return p[i]
+#      return p[-1]
+# solution(["mislav", "stanko", "mislav", "ana"],	["stanko", "ana", "mislav"])
+
+def solution(priorities, location):
+    # 출력할 문서들의 우선순위들 여러 쌍으로 만들어줌
+    p = list(zip(priorities,range(len(priorities))))
+    count = 0
+
+    while p:
+        item = p[0]
+        if item[0] != max(p)[0]:
+            p.append(p.pop(0))
+        elif item[1] == location:
+            count += 1
+            break
+        else:
+            count += 1
+            p.pop(0)
+    return count
