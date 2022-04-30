@@ -1,0 +1,39 @@
+# -            except ConnectionAbortedError:
+                continue
+            except ConnectionResetError:
+                continue
+
+    # 클라이언트 소켓으로 부터 데이터 수신
+    def recv(self):
+        while True:
+            for o in self.client:
+                try:
+                    data = o.recv(255)
+                    msg = data.decode(encoding='utf8')
+                    print(msg)
+                    self.send(msg)
+                except socket.timeout:
+                    continue
+                except ConnectionResetError:
+                    del o
+                except ConnectionAbortedError:
+                    del o
+
+
+    # 통신 시작 함수
+    def communicate(self):
+        # 각각의 스래드 생성
+        t_accept = threading.Thread(target=self.accept, daemon=True)
+
+        t_recv = threading.Thread(target=self.recv,daemon=True)
+
+        # 스래드 시작
+        t_accept.start()
+        t_recv.start()
+
+        # 프로그램 종료 방지
+        while True:
+            time.sleep(1000)
+
+server = SockServer('127.0.0.1', 3000)
+server.communicate()
