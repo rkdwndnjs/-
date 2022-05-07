@@ -1,0 +1,57 @@
+# def solution(record):
+#     answer = []
+#     # 사용자 아이디 - 닉네임을 딕셔러니로 정리
+#     user_data = {}
+#
+#     # 먼저 record를 순회하며, 사용자들의 닉네임을 업데이트 한다.
+#     for r in record:
+#         cmd, *param = r.split()
+#         # Enter과 Change만 닉네임을 변경
+#         if cmd == "Enter":
+#             user_data[param[0]] = param[1]
+#         elif cmd == "Change":
+#             user_data[param[0]] = param[1]
+#
+#     # 다시한번 record를 순회하며, 사용자들의 최종 닉네임으로 메세지를 answer에 넣는다.
+#     for r in record:
+#         cmd, *param = r.split()
+#         # Leave의 경우 메세지 없음
+#         if cmd == "Enter":
+#             answer.append(user_data[param[0]]+ "님이 들어왔습니다.")
+#         elif cmd == "Leave":
+#             answer.append(user_data[param[0]]+ "님이 나갔습니다.")
+#
+#     return answer
+
+#
+#
+# def solution(n):
+#     digit = ['4','1','2']
+#     ret = ''
+#     while n:
+#         ret = digit[n % 3] + ret
+#         n = n // 3 - (n%3 == 0)
+#     return ret
+#
+def solution(skill, skill_trees):
+    answer = 0
+
+    # 유저 스킬트리 목록을 순회함
+    for i in skill_trees:
+        pos = 0  # 현재 선생 스킬 위치
+        fall = False  # 스킬트리가 올바르지 않는가
+
+        # 유저 스킬트리를 순회함
+        for s in i:
+            # 현재 s가 선행 스킬 목록에 존재한다면
+            if s in skill:
+                # 현재 s가 선행 스킬 위치와 다르면 올바르지 않은 스킬트리
+                if s != skill[pos]:
+                    fall = True
+                    break
+                # 아니면 선행 스킬 위치를 증가
+                else:
+                    pos += 1
+        # 올바른 스킬트리라면 정답 +1
+        if not fall:
+            answer += 1
