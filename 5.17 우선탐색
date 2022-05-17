@@ -1,0 +1,55 @@
+#
+# # 입접행렬
+# matrix = [
+#     [1,1,1,1],
+#     [1,1,0,1],
+#     [1,0,1,1],
+#     [1,1,1,1]
+
+#
+# # 깊이 우선탐색(DFS) => Stack으로 구현
+# # visit = [False] * len(matrix)
+# # def dfs(vertex,matrix,visit):
+# #     visit[vertex] = True
+# #     print("정점", vertex, "방문")
+# #     for i in range(len(matrix[vertex])):
+# #         # 방문하지 않았고, 이동할수 있는 간선이 존재한다면
+# #         if visit[i] == False and matrix[vertex][i]:
+# #             dfs(i,matrix,visit)
+# #
+# #
+# # dfs(0,matrix,visit)
+#
+#
+# #
+# def dfs(curr,idx,numbers,target):
+#     # 현재 인덱스와 numbers의 길이가 같을때
+#     if idx == len(numbers):
+#         if curr == target:
+#             return 1
+#         else:
+#             return 0
+#
+#     count = dfs(curr - numbers[idx], idx+1,numbers,target)
+#     count += dfs(curr + numbers[idx], idx + 1, numbers, target)
+#     return count
+#
+# def solution(numbers,target):
+#     return dfs(0,0, numbers,target)
+
+def dfs(vertex,computers):
+    global visit
+    visit[vertex] = True
+
+    for i in range(len(computers)):
+        if visit[i] == False and computers[vertex][i] == 1:
+            dfs(i,computers)
+
+def solution(n,computers):
+    global visit
+    visit = [False]*n
+    network = 0
+    for i in range(len(visit)):
+        dfs(i,computers)
+        network += 1
+    return network
