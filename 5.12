@@ -1,0 +1,91 @@
+# def solution(x):
+#     x = str(x)
+#     a = 0
+#     for i in x:
+#         a += int(i)
+#     if int(x) % a == 0:
+#         return True
+#     else:
+#         return False
+#
+#
+#
+# solution(11)
+
+
+# def solution(x):
+#     answer = False
+#     a = x
+#     sum = 0
+#     while x:
+#         sum += x%10
+#         x  //= 10
+#     if a% sum == 0:
+#         answer = True
+#     return answer
+
+#
+#
+# def solution(arr1,arr2):
+#     answer =[]
+#     for i in range(len(arr1)):
+#         arr =[]
+#         for j in range(len(arr1[i])):
+#             arr.append(arr1[i][j] + arr2[i][j])
+#         answer.append(arr)
+#     return answer
+#
+#
+#
+# solution([[1,2],[2,3]],[[3,4],[5,6]])
+
+
+def How_much(minutes, fees):
+    total_fee = 0 #총 요금
+    #기본 시간보다 적게 주차한경우
+    if minutes <= fees[0]:
+        total_fee = fees[1]
+    #기본시간을 초과한 경우
+    else:
+        if ((minutes - fees[0]) / fees[2]) == ((minutes - fees[0]) // fees[2]):
+            total_fee = ((minutes - fees[0]) // fees[2]) * fees[3] + fees[1]
+        else:
+            total_fee = ((minutes - fees[0]) // fees[2]) * fees[3] + fees[1] + fees[3]
+    return total_fee
+
+
+def solution(fees, records):
+    answer = []
+
+    parking = {} # [번호 : 들어온 시간]
+    stack = {}   # [번호 : 주차한 기간]
+
+    for record in records:
+        time, number, log = record.split()
+        hour, minute = time.split(":")
+        minutes = int(hour) * 60 + int(minute)  # 시간 -> 분 환산
+
+        if log == 'IN':     #들어오면 [번호: 들어온시간] 저장
+            parking[number] = minutes
+
+        elif log == 'OUT':  #나가면 번호별 주차시간을 stack에 저장
+            if number not in stack:
+                stack[number] = minutes - parking[number]
+            else:
+                stack[number] += minutes - parking[number]
+
+            del parking[number]
+
+
+    # 출차 기록 없는 차 23:59 출차 처리
+    for number, minute in parking.items():
+        if number not in stack:
+            stack[number] = 23 * 60 + 59 - minute
+        else:
+            stack[number] += 23 * 60 + 59 - minute
+
+    #차량번호가 작은 순서대로 비용 계산
+    for number,time in sorted(stack.items()):
+        answer.append(How_much(time,fees))
+
+    return answer
