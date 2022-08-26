@@ -1,0 +1,44 @@
+# -# 프로그래머스 67256 키패드 누르기
+def solution(numbers, hand):
+
+    answer = ""
+    coord = [
+        (0,-2),
+        (-1,1), (0,1), (1,1),
+        (-1,0), (0,0), (1,0),
+        (-1,-1), (0,-1), (1,-1)
+    ]
+    left = (-1,-2) # 왼손
+    right = (1,-2)
+    for i in numbers:
+        if i == 1 or i == 4 or i== 7:
+
+            answer += "L"
+            left = coord[i]
+        elif i == 3 or i == 6 or i == 9:
+
+            answer += "R"
+            right = coord[i]
+        else:
+            left_number = abs(left[0]- coord[i][0]) + abs(left[1] - coord[i][1])
+            right_number = abs(right[0] - coord[i][0]) + abs(right[1] - coord[i][1])
+            if left_number > right_number:
+
+                answer += "R"
+                right = coord[i]
+            elif left_number == right_number:
+                if hand == "right":
+
+                    answer += "R"
+                    right = coord[i]
+                else:
+
+                    answer += "L"
+                    left = coord[i]
+            else:
+
+                answer += "L"
+                left = coord[i]
+
+
+    return answer
