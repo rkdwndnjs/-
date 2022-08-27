@@ -1,0 +1,174 @@
+# class MyClass:
+#     i =12345
+#     def f(self):
+#         return 'hello'
+#
+# print(MyClass.i)
+# print(MyClass.f)
+
+# class Complex:
+#     def __init__(self,rear,imagine):
+#         self.r = rear
+#         self.i = imagine
+#
+# x = Complex(3.0,-4.5)
+# print(x.r,x.i)
+#
+#
+# x.counter = 1
+# while x.counter < 10:
+#     x.counter = x.counter * 2
+# print(x.counter)
+#
+# class Myclass:
+#     i = 12345
+#     def f(self):
+#         return 'hello'
+#
+# x = Myclass
+#
+#
+# print(type(Myclass.f))
+# print(type(x.f))
+
+# class Dog:
+#     kind = '진돗개' # 모든 인스턴스에서 공유되는 클래스 변수
+#
+#     def __init__(self,name):
+#         self.name = name # 각각의 인스턴스 별로 고유한 인스턴스 변수
+#
+# a = Dog("백구")
+# b = Dog("뽀삐")
+# print(a.kind == b.kind)
+# print(a.name == b.kind)
+
+
+
+
+
+#
+# class AAA:
+#     share = 10
+#     def __init__(self,value):
+#         self.unique = value
+#
+# a = AAA(1)
+# b = AAA(2)
+# print(a ==b)
+# print(a.unique == b.unique)
+# print(a.share == b.share)
+# AAA.share = 0
+# print(a.share == b.share)
+# a.share = 5
+# print(a.share == b.share)
+
+
+# class person:
+#     def __init__(self,name,number,address):
+#         self.name = name
+#         self.number = number
+#         self.address = address
+#
+#     def name_get(self):
+#         print(self.name)
+#     def name_change(self,name):
+#         self.name = name
+#     def age_get(self,number):
+#         age = ''
+#         if number[6] == '1' or number[6] =='2' or number[6] == '5'or number[6]=='6':
+#             age += '19'
+#         else:
+#             age += '20'
+#         age += number[0]
+#         age += number[1]
+#         print(2022 - (int(age)-1))
+#     def age_change(self,number):
+#         self.
+#
+#     def gender(self,number):
+#         if number[6] == '1' or number[6] == '3' or number[6] == '5'or number[6] == '7':
+#             print("male")
+#         else:
+#             print("female")
+#     def address_get(self,address):
+#         print(str(address))
+#     def address_change(self,address):
+#         self.address = address
+#
+# a=person("김철수",'6607071234567',11111)
+# a.age_get('6607071234567')
+
+# class Animal:
+#     def pattern(self):
+#         print("민무늬")
+#
+#     def sound(self):
+#         print("소리 없음")
+#
+# class dog(Animal):
+#     def sound(self):
+#         super().sound()
+#         print("멍멍")
+#
+# d = dog
+#
+# Animal()
+# dog()
+
+# 세 종류의 값을 저장하는 클래스
+# class Value3:
+#     def __init__(self,v1,v2,v3):
+#         self.v1 = v1
+#         self.v2 = v2
+#         self.v3 = v3
+#
+#     def __iter__(self):
+#         def gen_iter():
+#             yield self.v1
+#             yield self.v2
+#             yield self.v3
+#
+#         return gen_iter()
+
+
+
+
+
+#
+# Value3 = Value3("문자열",1000,("튜플",1))
+
+
+# 1. in 오른쪽 객체에 대한 iter 메서드 호출
+# 2. interator 객체에서 next 메서드 호출
+# 3. 2번을 StopIteration 예외 발생 까지 반복
+# for i in Value3:
+#     print(i)
+
+# 연산자 오버라이딩 ( Operator overriding, 연산자 재정의)
+class Person:
+    def __init__(self,name):
+        self.name = name
+
+    def print_name(self):
+        print(self.name)
+
+    def __add__(self, other):
+        new = Marriage(self,other)
+        return new
+
+
+class Marriage:
+    def __init__(self, x,y):
+        self.x = x
+        self.y =y
+
+    def print_familly(self):
+        print("[가족 구성]")
+        self.x.print_name()
+        self.y.print_name()
+
+a =  Person("철수")
+b = Person("영희")
+# a + b -> a__add__(b)
+m = a+b
+m.print_familly()
