@@ -1,0 +1,165 @@
+# 연산자 오버로딩( Operator overloading )
+#  리스트를 상속받는 산술 리스트 클래스
+# class ArithemticAddlist(list):
+#     def __init__(self,data=()):
+#         super().__init__(data)
+#
+#
+#     # + 연산자에 대한 오버로딩
+#     #  self 가 왼쪽 피연산자,other이 다른쪽 피연산자가 된다.
+#     def __add__(self, other):
+#         # 두 리스트의 길이가 다르면 예외 발생
+#         if  len(self) != len(other):
+#             raise Exception("리스트의 길이가 다릅니다."
+#                             )
+#
+#         # 결과값을 저장할 새 인스턴트를 생성한다.
+#         result = ArithemticAddlist()
+#
+#         # 각 원소들을 더하여 결곽밧에 저장한ㅇㄴ다,
+#         for item1,item2 in zip(self,other):
+#             result.append(item1+item2)
+#         return result
+#
+# alist1 = ArithemticAddlist([1,2,3])
+# alist2 = ArithemticAddlist([4,5,6])
+# alist3 = alist1+alist2
+# print(alist3)
+#
+#
+#
+# # 2차원 평면의 좌표를 나타내는 클래스
+# class print2D:
+#     def __init__(self,x,y):
+#         self.x = x
+#         self.y = y
+#
+#     # 두 피연산자를 비교해서 x,y좌표가 모두 같으면 True 아니면 False
+#     def __eq__(self, other):
+#         return self.x == other.x and self.y == other.y
+#
+#     # 두 피연산자를 비교하여 x,y 좌표가 모두 다르면 True 아니면 False
+#     def __neg__(self,other):
+#         return not self.__eq__(other)
+#
+# p1 =  print2D(1,2)
+# p2 =  print2D(1,2)
+# p3 =  print2D(2,3)
+# print(p1 == p2)
+# print(p1 == p3)
+# print(p1 != p3)
+#
+#
+# class ThreeItem:
+#     def __init__(self,item1,item2,item3):
+#         self.item1 = item1
+#         self.item2 = item2
+#         self.item3 = item3
+#
+#     def __getitem__(self, item):
+#         if item == 0 :
+#             return self.item1
+#         elif item == 1:
+#             return self.item2
+#         elif item == self.item3:
+#             return self.item3
+#         else:
+#             raise  IndexError("0~2까지의 값만 참조할 수 있습니다.")
+
+
+# 노드(Node) 클래스 구현하기
+
+class Node:
+    def __init__(self,data,link = None):
+        self.data = data
+        self.link = link
+
+
+
+
+
+# b = Node(2)
+# a = Node(1,b)
+# print(a.data)
+# print(a.link.data)
+# print(a.link.link)
+
+
+class Mylist:
+    def __init__(self,*args):
+        self.head = None
+        self.tail = None
+        self.length = 0
+        for i in args:
+            self.append(i)
+    def append(self,data):
+        Node1 = Node(data)
+        if self.head == None:
+            self.head = self.tail = Node1
+        else:
+            self.tail.link = Node1
+            self.tail= Node1
+        self.length += 1
+    def __iter__(self):
+
+        def gen():
+            curr = self.head
+            while curr is not None:
+                yield curr.data
+                curr = curr.link
+
+        return gen()
+
+    def __len__(self):
+        return self.length
+
+    def __str__(self):
+        s ="<"
+        for idx ,data in enumerate(self):
+            s += str(data)
+            if idx < len(self) -1 :
+                s += ", "
+            else:
+                s += ">"
+        return s
+    def __getitem__(self, item):
+        if type(item) is not int:
+            raise TypeError("인덱스는 반드시 정수여야 합니다.")
+
+        if item < 0:
+            item = len(self) + item
+        if item >= len(self) or item < 0:
+            raise IndexError("인덱스 범위를 벗어났습니다.")
+
+        for idx, data in enumerate(self):
+            if idx == item:
+                return data
+
+    def __setitem__(self, key, value):
+        curr = self.head
+        Node1 = Node
+        if type(key) is not int:
+            raise TypeError("인덱스는 반드시 정수여야 합니다.")
+
+        if key < 0:
+            item = len(self) + key
+
+        if key >= len(self) or key < 0:
+            raise IndexError("인덱스 범위를 벗어났습니다.")
+
+        for i in range(key):
+            curr = curr.link
+        curr.data = value
+
+
+
+
+
+
+
+
+#
+mylist = Mylist(1,2,3,4)
+mylist[3] = 5
+
+print(mylist[3])
