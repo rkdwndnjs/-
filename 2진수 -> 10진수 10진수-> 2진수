@@ -1,0 +1,28 @@
+
+#TODO 이진수 소수 -> 10진수 소수(twoten)
+def twoten(a):
+    count = 1
+    answer = 0
+    for i in a:
+        answer += int(i)*(2**-count)
+        count +=1
+    return answer
+twoten('011')
+
+#TODO 10진수 소수 -> 2진수 소수(tentwo)
+def tentwo(a):
+    xxx = 10**len(a)
+    a = int(a)
+    count = ''
+    while a != 0:
+        a = a * 2
+        if a < xxx:
+            count += '0'
+        else:
+            count += '1'
+            a -= xxx
+        if len(count) >= 23:
+            break
+    return count
+
+tentwo('375')
