@@ -1,0 +1,30 @@
+import sys
+# # 벨먼-포드 알고리즘 함수
+# # matrix : 가중치 인접 행렬
+# # start : 시작 노드
+# def bellman_ford(matrix,start):
+#     # 노드의 개수
+#     v = len(matrix)
+# 
+#     # 1. 최단 거리 테이블 초기화
+#     distance = [float('inf')] * v
+# 
+#     # 출발 노드 설정
+#     distance[start] = 0
+# 
+#     # 3. 모든 노드에 대하여 최소 비용 계산
+#     # (V번 , 마지막 음의 사이클 검사까지 포함함)
+#     for n in range(v):
+#         for x in range(v):
+#             for y in range(v):
+#                 cost = matrix[x][y]
+# 
+#                 # 최소 비용 갱신
+#                 # 원래라면  distance[x] != float('inf')를 검사해야 한다
+#                 # 여기서 검사하지 않은 이유는 어차피 inf + x == inf 이기 때문
+#                 if distance[y] > distance[x] + cost:
+#                     distance[y] = distance[x] + cost
+# 
+#                     # 4. V번째에 갱신이 발생했다면 최단 거리를 구할 수 없다.
+#                     if n == v-1:
+#                         return "YES"
