@@ -1,0 +1,40 @@
+/*#include <stdio.h>
+int main(void)
+{
+	double  w;
+	double  h;
+	double  area;
+	double  perimiter;
+
+	
+	scanf("%lf", &w);
+
+	scanf("%lf", &h);
+
+	area = w * h;
+	perimiter = 2*(w + h);
+
+	printf("%lf\n",area);
+
+	printf("%lf\n",perimiter);
+	return 0;
+}*/
+
+/*
+#include <stdio.h>
+
+int main()b0;
+
+}*/
+
+
+/*#include <stdio.h>
+
+int main()
+
+{
+	float x = 1e39;
+	printf("x = %e\n", x);
+
+	return 0;                    
+}*/
