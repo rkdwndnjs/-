@@ -1,0 +1,106 @@
+/*#include <stdio.h>
+int main()
+
+{
+	int A, B, X;
+	char k;
+
+	printf("식을 입력해주세요:");
+	scanf("%d %c %d", &A,&k,&B);
+	if (k == '+')
+		X = A + B;
+	else if (k == '-')
+		X = A - B;
+	else if (k == '*')
+		X = A * B;
+	else if(k == '/')
+			X = A / B;
+	else
+		return -1;
+	printf("%d %c %d = %d", A,k,B,X);
+	return 0;
+	
+}*/
+
+/*#include <stdio.h>
+int main()
+{
+	int cup_size;
+
+	printf("컵 사이즈 입력:");
+	scanf("%d", &cup_size);
+
+	if (cup_size < 100)
+		printf("small\n");
+	else if (cup_size < 200)
+		printf("midium\n");
+	else
+		printf("large\n");
+
+	return 0;
+}*/	
+
+/*#include <stdio.h>
+int main()
+{
+	int number;
+
+	printf("정수를 입력하세요:");
+	scanf("%d", &number);
+	switch (number)
+	{
+	case 0:
+		printf("없음\n");
+		break;
+	case 1:
+		printf("하나\n");
+		break;
+	case 2:	
+		printf("둘\n");
+		break;
+
+	default:
+		printf("많음\n");
+		break;
+	}
+	
+}
+*/
+
+/*#include <stdio.h>
+int main()
+{
+	int n,x,sum;
+	x = 1;
+	sum = 0;
+	printf("입력해주세요:");
+	scanf("%d", &n);
+
+	while (n+1 > x)
+	{
+		sum += x;
+		x += 1;
+	}
+	
+	printf("%d", sum);
+	return 0;
+		
+}*/
+
+
+
+#include <stdio.h>
+int main()
+{
+	int x, y,r;
+	scanf("%d %d", &x, &y);
+
+	while (y != 0)
+	{
+		r = x % y;
+		x = y;
+		y = r;
+	}
+ 
+	printf("%d", x);
+	return 0;
