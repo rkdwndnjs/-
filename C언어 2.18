@@ -1,0 +1,61 @@
+
+/*int isPrime(int x); // 함수 원형 : 컴파이러에게 미리 알려주기위해 사용  
+int main()
+{
+	int x;
+	printf("정수를 입력하시오 ");
+	scanf("%d", &x);
+	if (isPrime(x))
+	{
+		printf("%d는 소수입니다.\n", x);
+	}
+	else {
+		printf("%d는 소수가 아닙니다. \n", x);
+	}
+	return 0;
+}
+
+
+int isPrime(int x)
+{
+	int i;
+	i = 2;                                  
+	while (i != x)
+	{
+		if (x % i == 0)
+			return 0;
+		i += 1;              
+	}
+	return 1;
+
+}*/
+#include <stdio.h>
+int main()
+{
+	int  one, ten, hun,list ,n;
+	int x;
+	list = 99;
+	n = 100;
+	
+	scanf("%d", &x);
+
+
+	if (x < 100)
+		printf("%d", x);
+	else
+	{
+		
+		while (n <= x)
+		{ 
+			hun = n / 100;
+			ten = n / 10 % 10;
+			one = n % 10;
+
+			if (hun - ten == ten - one)
+				list ++;
+			n ++;
+		}
+		printf("%d", list);
+	}
+	return 0;
+}
