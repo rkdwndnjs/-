@@ -1,0 +1,83 @@
+import random
+
+number = []
+
+user_number = []
+
+game = []
+
+times = 0
+
+while True:
+    R_N = random.randint(0,9)
+    if(not R_N in number):
+        number.append(R_N)
+        if len(number) == 3:
+            break
+
+print("게임을 시작하겠습니다.")
+print("_______________________")
+print("숫자와 자리가 일치한 경우 ○")
+print("_______________________")
+print("숫자는 일치하고 자리가 일치하지 않은 경우 △")
+print("_______________________")
+print("아무것도 일치하지 않으면 X")
+print("_______________________")
+print("0~9 사이의 중복되지 않는 숫자 3개를 입력해주세요")
+
+while True:
+
+    user_number.clear()
+    game.clear()
+    print("1번 숫자 입력")
+    a = int(input())
+
+    user_number.append(a)
+
+    print("2번 숫자 입력")
+    b = int(input())
+
+    user_number.append(b)
+
+    print("3번 숫자 입력")
+    c = int(input())
+
+    user_number.append(c)
+
+    print("당신이 고른 숫자:",user_number)
+
+    if number[0] == user_number[0]:
+        game.append("○")
+    elif number[1] == user_number[0]:
+        game.append("△")
+    elif number[2] == user_number[0]:
+        game.append("△")
+    else:
+        game.append("X")
+
+    if number[1] == user_number[1]:
+        game.append("○")
+    elif number[0] == user_number[1]:
+        game.append("△")
+    elif number[2] == user_number[1]:
+        game.append("△")
+    else:
+        game.append("X")
+
+    if number[2] == user_number[2]:
+        game.append("○")
+    elif number[1] == user_number[2]:
+        game.append("△")
+    elif number[0] == user_number[2]:
+        game.append("△")
+    else:
+        game.append("X")
+
+    times += 1
+
+    if user_number == number:
+        print("★★★CLEAR★★★")
+        print("걸린 횟수:",times)
+        break
+    else:
+        print("다시 입력해주세요",game)
