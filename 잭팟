@@ -1,0 +1,28 @@
+from tkinter import *
+import tkinter.ttk as ttk
+
+app = Tk()
+
+
+
+
+app.title('젝팟')
+app.geometry("500x500+500+150" )
+
+frame1 = Frame(app, relief="solid", bd=5)
+frame1.pack(side="right", fill="both", expand=True)
+
+frame2 = Frame(app, relief="solid", bd=5)
+frame2.pack(side="right", fill="both", expand=True)
+
+frame3 = Frame(app, relief="solid", bd=5)
+frame3.pack(side="right", fill="both", expand=True)
+
+
+    
+
+
+app.mainloop()
+
+https://m.blog.naver.com/sisosw/221408280038
+https://076923.github.io/posts/Python-tkinter-2/
